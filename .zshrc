@@ -166,6 +166,7 @@ alias zc="cd ; clear"
 alias zorgapp="cd /home/jack/IdeaProjects/ZorgappFinalized ; /home/jack/.sdkman/candidates/java/17.0.12-zulu/bin/java -javaagent:/home/jack/Documents/idea-IC-242.23726.103/lib/idea_rt.jar=40143:/home/jack/Documents/idea-IC-242.23726.103/bin -Dfile.encoding=UTF-8 -classpath /home/jack/IdeaProjects/ZorgappFinalized/out/production/ZorgappFinalized org.hu.medical.cli.Main ; cd"
 alias battery="acpi -i"
 alias loginTheme="sh -c ~/scripts/setup_login_theme.sh"
+alias rm="rm -i"
 
 # Generic command adaptations
 alias grep='() { $(whence -p grep) --color=auto $@ }'
