@@ -49,6 +49,8 @@ class Wordle():
             self.triedWords[loop] = self.guessedWord
             if self.guess == self.word:
                 self.guessed = True
+                self.guessedWord = Fore.GREEN + " ".join(self.guess)  # Make entire word green
+                self.triedWords[loop] = self.guessedWord
                 return True
         else:
             print("\nInvalid word!\nThe word should be 5 characters long!\nAnd has to exist!\n")
@@ -58,6 +60,7 @@ class Wordle():
     def startup(self):
         for loop in range(0,5):
             self.clear()
+            print(self.word)
             [print(word) for word in self.triedWords]
             if self.game(loop):
                 break
