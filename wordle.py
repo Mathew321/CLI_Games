@@ -60,7 +60,6 @@ class Wordle():
     def startup(self):
         for loop in range(0,5):
             self.clear()
-            print(self.word)
             [print(word) for word in self.triedWords]
             if self.game(loop):
                 break
