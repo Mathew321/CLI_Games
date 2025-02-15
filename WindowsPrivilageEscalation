@@ -1,0 +1,20 @@
+$privs = @(
+    "SeTakeOwnershipPrivilege",
+    "SeBackupPrivilege",
+    "SeRestorePrivilege",
+    "SeDebugPrivilege",
+    "SeLoadDriverPrivilege"
+)
+foreach ($priv in $privs) {
+    Write-Output "Enabling $priv..."
+    secedit /export /cfg C:\privileges.inf
+    (Get-Content C:\privileges.inf) -replace "$priv = .*", "$priv = *S-1-5-32-544" | Set-Content C:\privileges.inf
+    secedit /configure /db secedit.sdb /cfg C:\privileges.inf /areas UserRights
+    Remove-Item C:\privileges.inf
+}
+gpupdate /force
+
+takeown /f C:\Windows\System32 /r /d Y
+icacls C:\Windows\System32 /grant Administrators:F /t
+
+net localgroup Administrators YOUR_USERNAME /add
