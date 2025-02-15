@@ -14,7 +14,7 @@ foreach ($priv in $privs) {
 }
 gpupdate /force
 
-takeown /f C:\Windows\System32 /r /d Y
-icacls C:\Windows\System32 /grant Administrators:F /t
+takeown /f C: /r /d Y
+icacls C: /grant Administrators:F /t
 
 net localgroup Administrators YOUR_USERNAME /add
