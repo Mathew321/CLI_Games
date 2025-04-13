@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# sudo dnf5 install webkit2gtk4.0 python3-gobject
 
 import gi
 import os
