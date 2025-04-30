@@ -8,7 +8,8 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="emotty"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,6 +74,8 @@ plugins=(
     dnf
     zsh-autosuggestions
     zsh-syntax-highlighting
+    emotty
+    emoji
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -167,6 +170,7 @@ alias zorgapp="cd /home/jack/IdeaProjects/ZorgappFinalized ; /home/jack/.sdkman/
 alias battery="acpi -i"
 alias loginTheme="sh -c ~/scripts/setup_login_theme.sh"
 alias rm="rm -i"
+alias ff='fastfetch'
 
 # Generic command adaptations
 alias grep='() { $(whence -p grep) --color=auto $@ }'
@@ -177,6 +181,7 @@ alias ccat='highlight -O ansi'
 alias rm='rm -v'
 
 # Directory management
+alias ls='lsd'
 alias la='ls -a'
 alias ll='ls -l'
 alias lal='ls -al'
@@ -358,14 +363,3 @@ autoload -Uz tetriscurses
 # ░▀░░░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀▀▀░░▀░░▀▀▀░▀▀▀░▀▀▀░░▀░░▀░▀
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-if [ -e /home/jack/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jack/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
